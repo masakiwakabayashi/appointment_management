@@ -1,4 +1,7 @@
 
-<!-- 参考 -->
-<!-- https://zenn.dev/akfm/articles/agent-read-the-nextjs-way -->
+# CLAUDE.md
+
+## デザインシステム
+UIを実装する際は必ず @DESIGN.md を参照してください。
+コンポーネントの色・余白・角丸・フォントはすべてDESIGN.mdのトークンに従ってください。
 
