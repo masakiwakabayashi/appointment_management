@@ -6,6 +6,10 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 pnpm dev
 ```
 
+```bash
+docker compose up -d
+```
+
 ## drizzle
 
 ```bash
