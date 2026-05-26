@@ -23,3 +23,9 @@ pnpm drizzle-kit generate
 ```bash
 pnpm drizzle-kit migrate
 ```
+
+```bash
+pnpm seed
+```
+
+
