@@ -76,6 +76,8 @@ export const verification = pgTable(
 export const userRelations = relations(user, ({ many }) => ({
   sessions: many(session),
   accounts: many(account),
+  appointments: many(appointment),
+  userTags: many(userTag),
 }));
 
 export const sessionRelations = relations(session, ({ one }) => ({
@@ -92,4 +94,63 @@ export const accountRelations = relations(account, ({ one }) => ({
   }),
 }));
 
-export const schema = { user, session, account, verification };
+export const appointment = pgTable("appointment", {
+  id: text("id").primaryKey(),
+  userId: text("user_id")
+    .notNull()
+    .references(() => user.id, { onDelete: "cascade" }),
+  name: text("name").notNull(),
+  occupation: text("occupation"),
+  details: text("details"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at")
+    .defaultNow()
+    .$onUpdate(() => new Date())
+    .notNull(),
+});
+
+export const tag = pgTable("tag", {
+  id: text("id").primaryKey(),
+  tagName: text("tag_name").notNull(),
+});
+
+export const userTag = pgTable(
+  "user_tag",
+  {
+    id: text("id").primaryKey(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    tagId: text("tag_id")
+      .notNull()
+      .references(() => tag.id, { onDelete: "cascade" }),
+  },
+  (table) => [
+    index("user_tag_userId_idx").on(table.userId),
+    index("user_tag_tagId_idx").on(table.tagId),
+  ],
+);
+
+export const appointmentRelations = relations(appointment, ({ one }) => ({
+  user: one(user, {
+    fields: [appointment.userId],
+    references: [user.id],
+  }),
+}));
+
+export const tagRelations = relations(tag, ({ many }) => ({
+  userTags: many(userTag),
+}));
+
+export const userTagRelations = relations(userTag, ({ one }) => ({
+  user: one(user, {
+    fields: [userTag.userId],
+    references: [user.id],
+  }),
+  tag: one(tag, {
+    fields: [userTag.tagId],
+    references: [tag.id],
+  }),
+}));
+
+export const schema = { user, session, account, verification, appointment, tag, userTag };
