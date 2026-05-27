@@ -269,50 +269,71 @@ box-shadow: 0 4px 16px rgba(255, 107, 129, 0.35);
 
 ## Navigation Patterns
 
-### Bottom Navigation Bar (Mobile-first)
+### Sidebar Navigation (PC-first)
 
 ```tsx
-// Fixed bottom nav — the primary navigation pattern
-<nav className="
-  fixed bottom-0 left-0 right-0
-  bg-white border-t border-[#F0E8E8]
-  flex items-center justify-around
-  px-4 pb-safe pt-2
-  z-50
+// Fixed left sidebar — the primary navigation pattern for desktop
+<aside className="
+  fixed top-0 left-0 bottom-0
+  w-60
+  bg-white border-r border-[#F0E8E8]
+  flex flex-col
+  z-40
 ">
-  {navItems.map(item => (
-    <button key={item.id} className={`
-      flex flex-col items-center gap-0.5 py-1 px-3
-      ${isActive(item.id)
-        ? 'text-[#FF6B81]'
-        : 'text-[#C2C2C2] hover:text-[#8A8A8A]'}
-      transition-colors
-    `}>
-      <item.Icon className="w-6 h-6" />
-      <span className="text-[10px] font-medium">{item.label}</span>
-    </button>
-  ))}
-</nav>
+  {/* Logo */}
+  <div className="px-6 py-5 border-b border-[#F0E8E8]">
+    <h1 className="
+      text-xl font-bold
+      bg-gradient-to-r from-[#FF6B81] to-[#FF8C69]
+      bg-clip-text text-transparent
+    ">
+      アポ管理
+    </h1>
+  </div>
+
+  {/* Nav items */}
+  <nav className="flex-1 px-3 py-4 flex flex-col gap-1">
+    {navItems.map(item => (
+      <button key={item.id} className={`
+        flex items-center gap-3 px-4 py-2.5 rounded-xl
+        text-sm font-medium
+        transition-all duration-200
+        ${isActive(item.id)
+          ? 'bg-[#FFF0F2] text-[#FF6B81]'
+          : 'text-[#8A8A8A] hover:bg-[#FFF8F8] hover:text-[#2C2C2C]'}
+      `}>
+        <item.Icon className="w-5 h-5" />
+        {item.label}
+      </button>
+    ))}
+  </nav>
+
+  {/* User profile at bottom */}
+  <div className="px-4 py-4 border-t border-[#F0E8E8]">
+    <div className="flex items-center gap-3">
+      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#FF6B81] to-[#FF8C69]" />
+      <div>
+        <p className="text-sm font-semibold text-[#2C2C2C]">田中 太郎</p>
+        <p className="text-xs text-[#8A8A8A]">管理者</p>
+      </div>
+    </div>
+  </div>
+</aside>
 ```
 
-### Top App Bar
+### Top Bar (PC)
 
 ```tsx
+// Sticky top bar in the main content area
 <header className="
-  sticky top-0 z-40
+  sticky top-0 z-30
   bg-white/90 backdrop-blur-sm
   border-b border-[#F0E8E8]
-  px-4 py-3
+  px-8 py-4
   flex items-center justify-between
 ">
-  <h1 className="
-    text-xl font-bold
-    bg-gradient-to-r from-[#FF6B81] to-[#FF8C69]
-    bg-clip-text text-transparent
-  ">
-    AppName
-  </h1>
-  {/* Right actions */}
+  <h2 className="text-lg font-bold text-[#2C2C2C]">ダッシュボード</h2>
+  {/* Right: search, bell, avatar */}
 </header>
 ```
 
@@ -321,18 +342,15 @@ box-shadow: 0 4px 16px rgba(255, 107, 129, 0.35);
 ## Page Layout
 
 ```tsx
-// Standard mobile-first page shell
-<div className="
-  min-h-screen
-  bg-[#FFF8F8]
-  max-w-md mx-auto
-  relative
-">
-  <TopBar />
-  <main className="pb-20 px-4">
-    {/* content */}
-  </main>
-  <BottomNav />
+// Standard PC page shell — sidebar + main content
+<div className="min-h-screen bg-[#FFF8F8] flex">
+  <Sidebar />  {/* fixed, w-60 */}
+  <div className="flex-1 ml-60 flex flex-col min-h-screen">
+    <TopBar />
+    <main className="flex-1 px-8 py-6">
+      {/* content — use grid for multi-column where appropriate */}
+    </main>
+  </div>
 </div>
 ```
 
