@@ -5,8 +5,12 @@ import { hashPassword } from "better-auth/crypto";
 
 config({ path: ".env" });
 
-const EMAIL = "test@example.com";
-const PASSWORD = "securePassword123";
+const EMAIL = process.env.TEST_USER_EMAIL ?? "";
+const PASSWORD = process.env.TEST_USER_PASSWORD ?? "";
+
+if (!EMAIL || !PASSWORD) {
+  console.error("TEST_USER_EMAIL and TEST_USER_PASSWORD must be set in .env");
+}
 
 async function reset() {
   // FK制約を考慮し、子テーブルから順に削除
