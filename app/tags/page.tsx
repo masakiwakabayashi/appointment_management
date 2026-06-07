@@ -115,7 +115,7 @@ function InlineEditCard({
             <p className="text-sm font-semibold text-[#2C2C2C]">タグを削除しますか？</p>
             <p className="text-xs text-[#8A8A8A] mt-1">
               <span className="font-medium text-[#2C2C2C]">「{tag.tagName}」</span> を削除すると
-              {tag.usageCount > 0 && <span className="text-[#FF4D4D]"> {tag.usageCount}件のアポ</span>}
+              {tag.usageCount > 0 && <span className="text-[#FF4D4D]"> {tag.usageCount}件のMeet</span>}
               {tag.usageCount > 0 ? "からも外れます。" : "元に戻せません。"}
             </p>
           </div>
@@ -298,7 +298,7 @@ export default function TagsPage() {
             </div>
 
             <div className="bg-white rounded-[16px] border border-[#F0E8E8] shadow-[0_2px_12px_rgba(255,107,129,0.08)] p-5">
-              <p className="text-[#8A8A8A] text-sm">タグ付けされたアポ</p>
+              <p className="text-[#8A8A8A] text-sm">タグ付けされたMeet</p>
               <div className="flex items-end gap-1 mt-2">
                 <p className="text-[#2C2C2C] font-bold text-3xl leading-none">{totalUsage}</p>
                 <p className="text-[#FF6B81] text-sm font-medium mb-0.5">件</p>
@@ -309,7 +309,7 @@ export default function TagsPage() {
             <div className="bg-gradient-to-r from-[#FF6B81] to-[#FF8C69] rounded-[16px] shadow-[0_4px_16px_rgba(255,107,129,0.35)] p-5 text-white">
               <p className="text-sm font-medium opacity-80">最多使用タグ</p>
               <p className="font-bold text-2xl mt-2">{mostUsed?.tagName ?? "—"}</p>
-              <p className="text-sm opacity-80 mt-1">{mostUsed?.usageCount ?? 0} 件のアポで使用</p>
+              <p className="text-sm opacity-80 mt-1">{mostUsed?.usageCount ?? 0} 件のMeetで使用</p>
             </div>
           </section>
 

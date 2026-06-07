@@ -134,7 +134,7 @@ export default function AppointmentsPage() {
         <header className="sticky top-0 z-30 bg-white/90 backdrop-blur-sm border-b border-[#F0E8E8] px-8 py-4 flex items-center justify-between gap-4">
           <div>
             <p className="text-xs text-[#8A8A8A]">全 {allAppointments.length} 件</p>
-            <h2 className="text-lg font-bold text-[#2C2C2C]">アポ一覧</h2>
+            <h2 className="text-lg font-bold text-[#2C2C2C]">Meet一覧</h2>
           </div>
 
           <div className="flex items-center gap-3">
@@ -151,7 +151,7 @@ export default function AppointmentsPage() {
 
             <button className="flex items-center gap-2 py-2 px-4 rounded-full text-white font-semibold text-sm tracking-wide bg-gradient-to-r from-[#FF6B81] to-[#FF8C69] shadow-[0_4px_16px_rgba(255,107,129,0.35)] hover:brightness-105 hover:shadow-[0_6px_20px_rgba(255,107,129,0.45)] active:scale-[0.98] transition-all duration-200">
               <PlusIcon className="w-4 h-4" />
-              新規アポ
+              新規Meet
             </button>
           </div>
         </header>
@@ -180,7 +180,7 @@ export default function AppointmentsPage() {
             <div className="flex-1 overflow-y-auto px-8 py-4">
               {filtered.length === 0 ? (
                 <div className="flex flex-col items-center justify-center h-64 gap-3">
-                  <p className="text-[#C2C2C2] text-sm">該当するアポが見つかりませんでした</p>
+                  <p className="text-[#C2C2C2] text-sm">該当するMeetが見つかりませんでした</p>
                   <button
                     onClick={() => { setSearch(""); setActiveTag("すべて"); }}
                     className="text-[#FF6B81] text-sm font-medium hover:underline"

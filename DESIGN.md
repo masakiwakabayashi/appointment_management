@@ -287,7 +287,7 @@ box-shadow: 0 4px 16px rgba(255, 107, 129, 0.35);
       bg-gradient-to-r from-[#FF6B81] to-[#FF8C69]
       bg-clip-text text-transparent
     ">
-      アポ管理
+      MeetLog
     </h1>
   </div>
 

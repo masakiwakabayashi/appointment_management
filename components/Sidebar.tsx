@@ -5,8 +5,8 @@ import Link from "next/link";
 
 const navItems = [
   { id: "home", label: "ダッシュボード", href: "/", icon: HomeIcon },
-  { id: "appointments", label: "アポ一覧", href: "/appointments", icon: CalendarIcon },
-  { id: "add", label: "新規アポ追加", href: "/appointments/new", icon: PlusIcon },
+  { id: "appointments", label: "Meet一覧", href: "/appointments", icon: CalendarIcon },
+  { id: "add", label: "新規Meet追加", href: "/appointments/new", icon: PlusIcon },
   { id: "tags", label: "タグ管理", href: "/tags", icon: TagIcon },
 ];
 
@@ -50,7 +50,7 @@ export default function Sidebar() {
       {/* Logo */}
       <div className="px-6 py-5 border-b border-[#F0E8E8]">
         <h1 className="text-xl font-bold bg-gradient-to-r from-[#FF6B81] to-[#FF8C69] bg-clip-text text-transparent">
-          アポ管理
+          MeetLog
         </h1>
         <p className="text-[11px] text-[#C2C2C2] mt-0.5">Appointment Manager</p>
       </div>

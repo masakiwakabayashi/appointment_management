@@ -100,9 +100,9 @@ export default function NewAppointmentPage() {
               </svg>
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-[#2C2C2C]">アポを登録しました</h2>
+              <h2 className="text-2xl font-bold text-[#2C2C2C]">Meetを登録しました</h2>
               <p className="text-[#8A8A8A] text-sm mt-2">
-                <span className="font-semibold text-[#2C2C2C]">{name}</span> さんのアポイントメントが追加されました
+                <span className="font-semibold text-[#2C2C2C]">{name}</span> さんのMeetが追加されました
               </p>
             </div>
             <div className="flex gap-3">
@@ -140,8 +140,8 @@ export default function NewAppointmentPage() {
             <ChevronLeftIcon className="w-4 h-4" />
           </Link>
           <div>
-            <p className="text-xs text-[#8A8A8A]">アポ一覧 / 新規作成</p>
-            <h2 className="text-lg font-bold text-[#2C2C2C]">新規アポ追加</h2>
+            <p className="text-xs text-[#8A8A8A]">Meet一覧 / 新規作成</p>
+            <h2 className="text-lg font-bold text-[#2C2C2C]">新規Meet追加</h2>
           </div>
         </header>
 
@@ -277,7 +277,7 @@ export default function NewAppointmentPage() {
                 <textarea
                   value={details}
                   onChange={(e) => setDetails(e.target.value.slice(0, MAX_DETAILS))}
-                  placeholder="アポイントメントの目的や話したいことをメモ..."
+                  placeholder="Meetの目的や話したいことをメモ..."
                   rows={5}
                   className="w-full px-4 py-3 rounded-xl bg-[#F5F5F7] border border-transparent focus:border-[#FF6B81] focus:bg-white focus:outline-none text-[#2C2C2C] placeholder-[#C2C2C2] text-sm transition-all duration-200 resize-none leading-relaxed"
                 />

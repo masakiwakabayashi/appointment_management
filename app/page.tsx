@@ -52,8 +52,8 @@ const sampleAppointments = [
 ];
 
 const stats = [
-  { label: "総アポ数", value: "24", unit: "件", change: "+3 今月" },
-  { label: "今月のアポ", value: "8", unit: "件", change: "+2 先月比" },
+  { label: "総Meet数", value: "24", unit: "件", change: "+3 今月" },
+  { label: "今月のMeet", value: "8", unit: "件", change: "+2 先月比" },
   { label: "タグ数", value: "12", unit: "種", change: "3 カテゴリ" },
   { label: "今週の予定", value: "3", unit: "件", change: "次は明日" },
 ];
@@ -105,7 +105,7 @@ export default function DashboardPage() {
               <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#C2C2C2]" />
               <input
                 type="text"
-                placeholder="アポを検索..."
+                placeholder="Meetを検索..."
                 className="pl-9 pr-4 py-2 rounded-xl bg-[#F5F5F7] border border-transparent focus:border-[#FF6B81] focus:bg-white focus:outline-none text-[#2C2C2C] placeholder-[#C2C2C2] text-sm transition-all duration-200 w-56"
               />
             </div>
@@ -123,7 +123,7 @@ export default function DashboardPage() {
             {/* New appointment button */}
             <button className="flex items-center gap-2 py-2 px-4 rounded-full text-white font-semibold text-sm tracking-wide bg-gradient-to-r from-[#FF6B81] to-[#FF8C69] shadow-[0_4px_16px_rgba(255,107,129,0.35)] hover:brightness-105 hover:shadow-[0_6px_20px_rgba(255,107,129,0.45)] active:scale-[0.98] transition-all duration-200">
               <PlusIcon className="w-4 h-4" />
-              新規アポ
+              新規Meet
             </button>
           </div>
         </header>
@@ -151,7 +151,7 @@ export default function DashboardPage() {
           <section>
             <div className="rounded-[20px] bg-gradient-to-r from-[#FF6B81] to-[#FF8C69] p-6 shadow-[0_4px_16px_rgba(255,107,129,0.35)] text-white flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium opacity-80">次のアポイントメント</p>
+                <p className="text-sm font-medium opacity-80">次のMeet</p>
                 <p className="text-2xl font-bold mt-1">田中 太郎さん</p>
                 <p className="text-sm opacity-80 mt-0.5">エンジニア・新規プロジェクトについて</p>
               </div>
@@ -169,7 +169,7 @@ export default function DashboardPage() {
           {/* Appointments grid */}
           <section>
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-[#2C2C2C] text-[18px] font-semibold">最近のアポ</h3>
+              <h3 className="text-[#2C2C2C] text-[18px] font-semibold">最近のMeet</h3>
               <button className="text-[#FF6B81] text-sm font-medium hover:underline">
                 すべて見る
               </button>
